@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from '../styles/PokemonPopup.module.css'; // Create a new CSS file for popup styles
+import styles from '../styles/PokemonPopup.module.css'; 
 
 interface PokemonPopupProps {
     onClose: () => void;
-    pokemonDetails: any; // Pass the details fetched from GraphQL query
+    pokemonDetails: any; 
   }
 
 interface FastAttack {

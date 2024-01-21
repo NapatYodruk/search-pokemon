@@ -1,26 +1,26 @@
 
 .pokemonCard {
     display: flex;
-    background-color: #f0f0f0; /* Gray background color */
+    background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     padding: 16px;
-    margin: 10px; /* Add margin on all sides */
+    margin: 10px; 
     width: calc(21% - 30px);
     min-width: 300px;
     box-sizing: border-box;
     flex-direction: column;
     transition: all 0.3s ease-in-out;
-    background-size: cover; /* Ensure the background image covers the container */
-    background-position: center; /* Center the background image */
-    position: relative; /* Needed for z-index and child positioning */
+    background-size: cover; 
+    background-position: center; 
+    position: relative; 
   }
   
   .pokemonCard .imageContainer {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center; 
+    align-items: center; 
     height: 260px;
     width: 90%;
     opacity: 0.2;

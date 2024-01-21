@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import PokemonCard from './PokemonCard';
 import styles from '../styles/Home.module.css'; 
+import getPokemons from '../utils/getPokemons';
 
 interface PokemonListQueryProps {
     onOpenPopup: (pokemonDetails: any) => void;
@@ -17,58 +18,18 @@ interface PokemonListQueryProps {
 
     useEffect(() => {
         const fetchData = async () => {
-            try {
-                const response = await fetch('https://graphql-pokemon2.vercel.app', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        query: `
-                        query pokemons($first: Int!){
-                            pokemons(first: $first){
-                                id
-                                number
-                                name
-                                classification
-                                fleeRate
-                                maxCP
-                                maxHP
-                                image
-                                attacks{
-                                    fast{
-                                      name
-                                    }
-                                    special{
-                                      name
-                                    }
-                                  }
-                                  evolutions{
-                                    name
-                                  }
-                            }
-                        }
-                        `,
-                        variables: {
-                            first: 500,
-                        },
-                    }),
-                });
-    
-                const result = await response.json();
-    
-                if (result.data && result.data.pokemons) {
-                    setPokemons(result.data.pokemons);
-                    const names = result.data.pokemons.map((pokemon: any) => pokemon.name);
-                    onFetchNames(names);
-                }
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
+          try {
+            const result = await getPokemons();
+            setPokemons(result);
+            const names = result.map((pokemon: any) => pokemon.name);
+            onFetchNames(names);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
         };
     
         fetchData();
-    }, []);
+      }, [onFetchNames]);
 
 
     useEffect(() => {

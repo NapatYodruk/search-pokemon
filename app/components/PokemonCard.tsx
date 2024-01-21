@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/PokemonCard.module.css'; // Update the import path
+import styles from '../styles/PokemonCard.module.css';
+import getPokemonByName from '../utils/getPokemonByName';
 
 interface PokemonCardProps {
     name: string;
@@ -28,77 +29,15 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
     onOpenPopup,
 }) => {
 
-    const handleClick = async () => {
-        try {
-          const response = await fetch('https://graphql-pokemon2.vercel.app', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              query: `
-                query pokemon($name: String!){
-                  pokemon(name: $name){
-                    id
-                    number
-                    name
-                    classification
-                    fleeRate
-                    types
-                    resistant
-                    weaknesses
-                    maxCP
-                    maxHP
-                    image
-                    weight{
-                        minimum
-                        maximum
-                      }
-                      height{
-                        minimum
-                        maximum
-                      }
-                    attacks{
-                    fast{
-                        name
-                        type
-                        damage
-                    }
-                    special{
-                        name
-                        type
-                        damage
-                    }
-                    }
-                    evolutions{
-                        name
-                        number
-                        fleeRate
-                        maxCP
-                        maxHP
-                        image
-                    }
-                  }
-                }
-              `,
-              variables: {
-                name: name,
-              },
-            }),
-          });
-    
-          const result = await response.json();
-    
-          if (result.data && result.data.pokemon) {
-            const pokemonDetails = result.data.pokemon;
-            console.log("result :");
-            console.log(pokemonDetails);
-            onOpenPopup(pokemonDetails); // Pass handlePopupClose as a callback
-          }
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
+  const handleClick = async () => {
+    const pokemonDetails = await getPokemonByName(name);
+
+    if (pokemonDetails) {
+      console.log('result:');
+      console.log(pokemonDetails);
+      onOpenPopup(pokemonDetails);
+    }
+  };
 
 
       return (

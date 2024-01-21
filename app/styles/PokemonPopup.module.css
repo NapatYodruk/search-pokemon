@@ -32,7 +32,7 @@
   
   .popupBody {
     flex: 1;
-    overflow-y: auto; /* Add scroll if content overflows */
+    overflow-y: auto; 
   }
   
   .popupContent {
