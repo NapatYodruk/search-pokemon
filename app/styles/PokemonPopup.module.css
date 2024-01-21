@@ -1,0 +1,85 @@
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw; 
+    height: 90vh;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  
+
+  .closeButton {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+  .popupBody {
+    flex: 1;
+    overflow-y: auto; /* Add scroll if content overflows */
+  }
+  
+  .popupContent {
+    flex-grow: 1;
+    overflow-y: auto;
+    text-align: center;
+  }
+
+  .popupContent h2 {
+    color: #333;
+    font-size: 40px;
+    text-align: left;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    font-weight: bold;
+  }
+  
+  
+  .contentContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+    padding: 50px;
+  }
+  
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: #333;
+  }
+  
+  .table td,
+  .table th {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .table td:first-child,
+  .table th:first-child {
+    font-weight: bold;
+    background-color: #f2f2f2;
+  }
