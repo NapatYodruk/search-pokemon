@@ -29,7 +29,7 @@ interface PokemonListQueryProps {
         };
     
         fetchData();
-      }, [onFetchNames]);
+      }, []);
 
 
     useEffect(() => {
