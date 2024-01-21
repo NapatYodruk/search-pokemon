@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import PokemonCard from './PokemonCard';
 import styles from '../styles/Home.module.css'; 
 import getPokemons from '../utils/getPokemons';
+//up
 
 interface PokemonListQueryProps {
     onOpenPopup: (pokemonDetails: any) => void;
